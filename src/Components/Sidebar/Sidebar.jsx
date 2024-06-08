@@ -23,6 +23,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import { Link } from "react-router-dom";
 const Sidebar = ({ open, toggleDrawer }) => {
   const dashboard = [
     {
@@ -137,7 +138,6 @@ const Sidebar = ({ open, toggleDrawer }) => {
           </ListItem>
         ))}
       </List>
-
     </Box>
   );
   return (
@@ -153,10 +153,12 @@ const Sidebar = ({ open, toggleDrawer }) => {
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Dashboard</h3>
             <ul className="sidebarList">
-              <li className="sidebarListItem active">
-                <LineStyleIcon className="sidebarIcon" />
-                Home
-              </li>
+              <Link to="/" style={{ textDecoration: "none", color: "gray" }}>
+                <li className="sidebarListItem active">
+                  <LineStyleIcon className="sidebarIcon" />
+                  Home
+                </li>
+              </Link>
               <li className="sidebarListItem">
                 <TimelineIcon className="sidebarIcon" />
                 Analytics
@@ -171,14 +173,24 @@ const Sidebar = ({ open, toggleDrawer }) => {
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Quick Menu</h3>
             <ul className="sidebarList">
-              <li className="sidebarListItem">
-                <PermIdentityOutlinedIcon className="sidebarIcon" />
-                Users
-              </li>
-              <li className="sidebarListItem">
-                <StorefrontOutlinedIcon className="sidebarIcon" />
-                Products
-              </li>
+              <Link
+                to="/users"
+                style={{ textDecoration: "none", color: "gray" }}
+              >
+                <li className="sidebarListItem">
+                  <PermIdentityOutlinedIcon className="sidebarIcon" />
+                  Users
+                </li>
+              </Link>
+              <Link
+                to="/products"
+                style={{ textDecoration: "none", color: "gray" }}
+              >
+                <li className="sidebarListItem">
+                  <StorefrontOutlinedIcon className="sidebarIcon" />
+                  Products
+                </li>
+              </Link>
               <li className="sidebarListItem">
                 <AttachMoneyOutlinedIcon className="sidebarIcon" />
                 Transactions
